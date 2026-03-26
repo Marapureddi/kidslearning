@@ -1,0 +1,152 @@
+.alphabet-explorer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.alphabet-title {
+  font-size: 28px;
+  color: var(--english);
+}
+
+.letter-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.arrow-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--english-light);
+  color: var(--english);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.arrow-btn:hover:not(:disabled) {
+  background: var(--english);
+  color: white;
+  transform: scale(1.1);
+}
+
+.arrow-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.letter-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-bg);
+  padding: 36px 60px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 280px;
+}
+
+.letter-big {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 120px;
+  font-weight: 700;
+  color: var(--english);
+  line-height: 1;
+}
+
+.letter-small {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 60px;
+  font-weight: 500;
+  color: var(--english-dark);
+  line-height: 1;
+  margin-top: -8px;
+}
+
+.letter-emoji {
+  font-size: 64px;
+  margin: 8px 0;
+}
+
+.letter-word {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.speak-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--english);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 8px;
+  transition: all 0.2s;
+}
+
+.speak-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.letter-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.letter-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.letter-dot.active {
+  background: var(--english);
+  border-color: var(--english);
+  color: white;
+  transform: scale(1.15);
+}
+
+.letter-dot:hover:not(.active) {
+  border-color: var(--english);
+  color: var(--english);
+}
+
+@media (max-width: 600px) {
+  .letter-display {
+    padding: 28px 40px;
+    min-width: 220px;
+  }
+  .letter-big {
+    font-size: 80px;
+  }
+  .letter-small {
+    font-size: 40px;
+  }
+  .letter-emoji {
+    font-size: 48px;
+  }
+}

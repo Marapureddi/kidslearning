@@ -1,0 +1,62 @@
+import { FaBookOpen, FaCalculator, FaPuzzlePiece, FaFlask } from 'react-icons/fa'
+
+export const subjects = [
+  {
+    id: 'english',
+    name: 'English',
+    icon: FaBookOpen,
+    emoji: '📚',
+    color: 'var(--english)',
+    lightColor: 'var(--english-light)',
+    description: 'Letters, Words & Sounds',
+    activities: [
+      { id: 'alphabet', name: 'Alphabet Explorer', emoji: '🔤', description: 'Learn your ABCs!' },
+      { id: 'phonics', name: 'Phonics Match', emoji: '🔊', description: 'Match sounds to pictures!' },
+      { id: 'words', name: 'Word Builder', emoji: '✏️', description: 'Spell simple words!' },
+    ],
+  },
+  {
+    id: 'math',
+    name: 'Math',
+    icon: FaCalculator,
+    emoji: '🔢',
+    color: 'var(--math)',
+    lightColor: 'var(--math-light)',
+    description: 'Numbers, Counting & Shapes',
+    activities: [
+      { id: 'counting', name: 'Counting Fun', emoji: '🐾', description: 'Count objects!' },
+      { id: 'numbers', name: 'Number Match', emoji: '🔢', description: 'Match numbers to groups!' },
+      { id: 'addition', name: 'Basic Addition', emoji: '➕', description: 'Add things together!' },
+      { id: 'shapes', name: 'Shape Explorer', emoji: '🔷', description: 'Find the shapes!' },
+    ],
+  },
+  {
+    id: 'puzzles',
+    name: 'Puzzles',
+    icon: FaPuzzlePiece,
+    emoji: '🧩',
+    color: 'var(--puzzles)',
+    lightColor: 'var(--puzzles-light)',
+    description: 'Memory, Patterns & Fun',
+    activities: [
+      { id: 'memory', name: 'Memory Cards', emoji: '🃏', description: 'Find matching pairs!' },
+      { id: 'patterns', name: 'Pattern Finder', emoji: '🔁', description: 'What comes next?' },
+      { id: 'matching', name: 'Matching Pairs', emoji: '🔗', description: 'Connect the pairs!' },
+    ],
+  },
+  {
+    id: 'science',
+    name: 'Science',
+    icon: FaFlask,
+    emoji: '🔬',
+    color: 'var(--science)',
+    lightColor: 'var(--science-light)',
+    description: 'Animals, Colors & Nature',
+    activities: [
+      { id: 'animals', name: 'Animal Sounds', emoji: '🐶', description: 'Who makes this sound?' },
+      { id: 'colors', name: 'Color Mixing', emoji: '🎨', description: 'Mix and find colors!' },
+      { id: 'nature', name: 'Nature Explorer', emoji: '🌿', description: 'Discover nature!' },
+      { id: 'body', name: 'Body Parts', emoji: '🦴', description: 'Learn about your body!' },
+    ],
+  },
+]

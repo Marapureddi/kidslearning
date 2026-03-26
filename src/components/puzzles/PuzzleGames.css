@@ -1,0 +1,264 @@
+.puzzle-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.puzzle-title {
+  font-size: 28px;
+  color: var(--puzzles);
+}
+
+.puzzle-info {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+/* Memory Cards */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 460px;
+  width: 100%;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  perspective: 600px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.memory-card.flipped .card-inner,
+.memory-card.matched .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  font-size: 40px;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background: linear-gradient(135deg, var(--puzzles), var(--puzzles-dark));
+  color: white;
+  font-size: 32px;
+}
+
+.card-back {
+  background: var(--card-bg);
+  border: 3px solid var(--puzzles);
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched .card-back {
+  border-color: var(--correct);
+  background: var(--correct-light);
+}
+
+.puzzle-complete {
+  background: var(--correct-light);
+  padding: 24px 40px;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.puzzle-complete h3 {
+  font-size: 24px;
+  color: var(--correct);
+  margin-bottom: 8px;
+}
+
+.puzzle-complete p {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.puzzle-reset {
+  padding: 12px 28px;
+  background: var(--puzzles);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+}
+
+.puzzle-reset:hover {
+  opacity: 0.9;
+}
+
+/* Pattern Game */
+.pattern-display {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pattern-item {
+  font-size: 40px;
+}
+
+.pattern-blank {
+  width: 56px;
+  height: 56px;
+  border: 3px dashed var(--puzzles);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--puzzles);
+  font-weight: 700;
+}
+
+.pattern-blank.filled {
+  border-style: solid;
+  border-color: var(--correct);
+  background: var(--correct-light);
+  font-size: 40px;
+}
+
+.puzzle-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.puzzle-option {
+  padding: 16px;
+  font-size: 36px;
+  background: var(--card-bg);
+  border: 3px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.puzzle-option:hover:not(:disabled) {
+  border-color: var(--puzzles);
+  transform: scale(1.05);
+}
+
+.puzzle-option.correct {
+  border-color: var(--correct);
+  background: var(--correct-light);
+}
+
+.puzzle-option.wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-light);
+}
+
+.puzzle-option.dimmed {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Matching Pairs */
+.matching-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.matching-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.match-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: var(--card-bg);
+  border: 3px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 140px;
+}
+
+.match-item.selected {
+  border-color: var(--puzzles);
+  background: var(--puzzles-light);
+}
+
+.match-item.matched {
+  border-color: var(--correct);
+  background: var(--correct-light);
+  pointer-events: none;
+}
+
+.match-item.wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-light);
+}
+
+.match-emoji {
+  font-size: 32px;
+}
+
+.puzzle-progress {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.puzzle-next {
+  padding: 12px 32px;
+  background: var(--correct);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (max-width: 500px) {
+  .memory-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .matching-container {
+    gap: 20px;
+  }
+  .match-item {
+    min-width: 100px;
+    padding: 10px 14px;
+  }
+}

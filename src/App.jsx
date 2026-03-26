@@ -1,120 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import AppShell from './components/layout/AppShell'
+import HomePage from './pages/HomePage'
+import SubjectPage from './pages/SubjectPage'
+
+// English
+import AlphabetExplorer from './components/english/AlphabetExplorer'
+import PhonicsMatch from './components/english/PhonicsMatch'
+import WordBuilder from './components/english/WordBuilder'
+
+// Math
+import CountingGame from './components/math/CountingGame'
+import NumberRecognition from './components/math/NumberRecognition'
+import AdditionGame from './components/math/AdditionGame'
+import ShapeExplorer from './components/math/ShapeExplorer'
+
+// Puzzles
+import MemoryCards from './components/puzzles/MemoryCards'
+import PatternCompletion from './components/puzzles/PatternCompletion'
+import MatchingPairs from './components/puzzles/MatchingPairs'
+
+// Science
+import AnimalSounds from './components/science/AnimalSounds'
+import ColorMixing from './components/science/ColorMixing'
+import NatureExplorer from './components/science/NatureExplorer'
+import BodyParts from './components/science/BodyParts'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <AppShell>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:subjectId" element={<SubjectPage />} />
 
-      <div className="ticks"></div>
+        {/* English */}
+        <Route path="/english/alphabet" element={<AlphabetExplorer />} />
+        <Route path="/english/phonics" element={<PhonicsMatch />} />
+        <Route path="/english/words" element={<WordBuilder />} />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        {/* Math */}
+        <Route path="/math/counting" element={<CountingGame />} />
+        <Route path="/math/numbers" element={<NumberRecognition />} />
+        <Route path="/math/addition" element={<AdditionGame />} />
+        <Route path="/math/shapes" element={<ShapeExplorer />} />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+        {/* Puzzles */}
+        <Route path="/puzzles/memory" element={<MemoryCards />} />
+        <Route path="/puzzles/patterns" element={<PatternCompletion />} />
+        <Route path="/puzzles/matching" element={<MatchingPairs />} />
+
+        {/* Science */}
+        <Route path="/science/animals" element={<AnimalSounds />} />
+        <Route path="/science/colors" element={<ColorMixing />} />
+        <Route path="/science/nature" element={<NatureExplorer />} />
+        <Route path="/science/body" element={<BodyParts />} />
+      </Routes>
+    </AppShell>
   )
 }
 
