@@ -6,6 +6,8 @@ import { useAudio } from '../../hooks/useAudio'
 import QuizComplete from '../shared/QuizComplete'
 import './WordBuilder.css'
 
+const WORDS_PER_ROUND = 15
+
 function shuffle(arr) {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
@@ -15,16 +17,21 @@ function shuffle(arr) {
   return a
 }
 
+function pickRandom(arr, count) {
+  return shuffle(arr).slice(0, count)
+}
+
 export default function WordBuilder() {
+  const [words, setWords] = useState(() => pickRandom(wordData, WORDS_PER_ROUND))
   const [wordIndex, setWordIndex] = useState(0)
   const [selected, setSelected] = useState([])
-  const [scrambled, setScrambled] = useState(() => shuffle(wordData[0].word.split('')))
+  const [scrambled, setScrambled] = useState(() => shuffle(words[0].word.split('')))
   const [score, setScore] = useState(0)
   const [done, setDone] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
   const { speak } = useAudio()
 
-  const current = wordData[wordIndex]
+  const current = words[wordIndex]
   const targetWord = current.word
 
   const handleLetterTap = useCallback((letter, scrambledIndex) => {
@@ -55,28 +62,30 @@ export default function WordBuilder() {
   }
 
   const handleNext = () => {
-    if (wordIndex + 1 >= wordData.length) {
+    if (wordIndex + 1 >= words.length) {
       setDone(true)
     } else {
       const nextIdx = wordIndex + 1
       setWordIndex(nextIdx)
       setSelected([])
-      setScrambled(shuffle(wordData[nextIdx].word.split('')))
+      setScrambled(shuffle(words[nextIdx].word.split('')))
       setIsCorrect(false)
     }
   }
 
   const handleReset = () => {
+    const newWords = pickRandom(wordData, WORDS_PER_ROUND)
+    setWords(newWords)
     setWordIndex(0)
     setSelected([])
-    setScrambled(shuffle(wordData[0].word.split('')))
+    setScrambled(shuffle(newWords[0].word.split('')))
     setScore(0)
     setDone(false)
     setIsCorrect(false)
   }
 
   if (done) {
-    return <QuizComplete score={score} total={wordData.length} onReset={handleReset} />
+    return <QuizComplete score={score} total={words.length} onReset={handleReset} />
   }
 
   const usedIndices = selected.map(s => s.scrambledIndex)
@@ -88,9 +97,9 @@ export default function WordBuilder() {
 
       <div className="wb-progress">
         <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${((wordIndex + 1) / wordData.length) * 100}%` }} />
+          <div className="progress-fill" style={{ width: `${((wordIndex + 1) / words.length) * 100}%` }} />
         </div>
-        <span className="progress-text">{wordIndex + 1} / {wordData.length}</span>
+        <span className="progress-text">{wordIndex + 1} / {words.length}</span>
       </div>
 
       <div className="wb-prompt">

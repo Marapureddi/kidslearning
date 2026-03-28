@@ -37,7 +37,7 @@ export default function AlphabetExplorer() {
             <div className="letter-word">{item.word}</div>
             <button
               className="speak-btn"
-              onClick={() => speak(`${item.letter}. ${item.letter} is for ${item.word}`)}
+              onClick={() => speak(`${item.letter} is for ${item.word}`)}
             >
               <FaVolumeUp /> Hear it!
             </button>

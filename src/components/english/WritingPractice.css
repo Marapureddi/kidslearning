@@ -1,0 +1,150 @@
+.writing-practice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.wp-title {
+  font-size: 28px;
+  color: var(--english);
+}
+
+.wp-categories {
+  display: flex;
+  gap: 8px;
+}
+
+.wp-cat {
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light);
+  transition: all 0.2s;
+}
+
+.wp-cat.active {
+  background: var(--english);
+  border-color: var(--english);
+  color: white;
+}
+
+.wp-cat:hover:not(.active) {
+  border-color: var(--english);
+  color: var(--english);
+}
+
+.wp-progress {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-bg);
+  padding: 32px 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  width: 100%;
+}
+
+.wp-prompt {
+  font-size: 22px;
+  color: var(--text);
+}
+
+.wp-prompt strong {
+  color: var(--english);
+  font-size: 28px;
+}
+
+.wp-sentence {
+  font-size: 20px;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.wp-input-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+.wp-input {
+  flex: 1;
+  padding: 14px 20px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  border: 3px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.wp-input:focus {
+  border-color: var(--english);
+}
+
+.wp-input.correct {
+  border-color: var(--correct);
+  background: var(--correct-light);
+  color: var(--correct);
+}
+
+.wp-input.wrong {
+  border-color: var(--wrong);
+  background: var(--wrong-light);
+}
+
+.wp-check {
+  padding: 14px 24px;
+  background: var(--english);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.wp-check:disabled {
+  opacity: 0.4;
+}
+
+.wp-next {
+  padding: 14px 24px;
+  background: var(--correct);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.wp-hint {
+  font-size: 14px;
+  color: var(--wrong);
+  font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .wp-card {
+    padding: 24px 20px;
+  }
+  .wp-input {
+    font-size: 20px;
+  }
+}

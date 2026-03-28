@@ -1,0 +1,33 @@
+export const basicSubtractionQuestions = [
+  { a: 3, b: 1, emoji: '🍎', correctAnswer: 2, options: [1, 2, 3, 4] },
+  { a: 4, b: 2, emoji: '⭐', correctAnswer: 2, options: [1, 2, 3, 4] },
+  { a: 5, b: 1, emoji: '🐟', correctAnswer: 4, options: [2, 3, 4, 5] },
+  { a: 5, b: 3, emoji: '🌸', correctAnswer: 2, options: [1, 2, 3, 4] },
+  { a: 6, b: 2, emoji: '🦋', correctAnswer: 4, options: [3, 4, 5, 6] },
+  { a: 7, b: 3, emoji: '🍌', correctAnswer: 4, options: [3, 4, 5, 6] },
+  { a: 8, b: 4, emoji: '🎈', correctAnswer: 4, options: [3, 4, 5, 6] },
+  { a: 6, b: 4, emoji: '🐢', correctAnswer: 2, options: [1, 2, 3, 4] },
+  { a: 9, b: 5, emoji: '🍇', correctAnswer: 4, options: [3, 4, 5, 6] },
+  { a: 7, b: 2, emoji: '🐝', correctAnswer: 5, options: [4, 5, 6, 7] },
+  { a: 10, b: 3, emoji: '🌻', correctAnswer: 7, options: [6, 7, 8, 9] },
+  { a: 8, b: 5, emoji: '🐛', correctAnswer: 3, options: [2, 3, 4, 5] },
+]
+
+export const advancedSubtractionQuestions = [
+  { a: 15, b: 5, correctAnswer: 10, options: [8, 9, 10, 11] },
+  { a: 18, b: 3, correctAnswer: 15, options: [14, 15, 16, 17] },
+  { a: 20, b: 5, correctAnswer: 15, options: [13, 14, 15, 16] },
+  { a: 20, b: 10, correctAnswer: 10, options: [8, 9, 10, 12] },
+  { a: 25, b: 5, correctAnswer: 20, options: [18, 19, 20, 21] },
+  { a: 22, b: 12, correctAnswer: 10, options: [9, 10, 11, 12] },
+  { a: 30, b: 10, correctAnswer: 20, options: [18, 19, 20, 22] },
+  { a: 28, b: 8, correctAnswer: 20, options: [19, 20, 21, 22] },
+  { a: 35, b: 5, correctAnswer: 30, options: [28, 29, 30, 31] },
+  { a: 30, b: 15, correctAnswer: 15, options: [13, 14, 15, 16] },
+  { a: 35, b: 10, correctAnswer: 25, options: [23, 24, 25, 26] },
+  { a: 40, b: 5, correctAnswer: 35, options: [33, 34, 35, 36] },
+  { a: 40, b: 10, correctAnswer: 30, options: [28, 29, 30, 32] },
+  { a: 40, b: 15, correctAnswer: 25, options: [23, 24, 25, 27] },
+  { a: 40, b: 20, correctAnswer: 20, options: [18, 19, 20, 22] },
+  { a: 38, b: 18, correctAnswer: 20, options: [19, 20, 21, 22] },
+]

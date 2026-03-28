@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import confetti from 'canvas-confetti'
-import { matchingPairs } from '../../data/puzzles/matching'
+import { matchingPairSets } from '../../data/puzzles/matching'
 import './PuzzleGames.css'
 
 function shuffle(arr) {
@@ -14,13 +14,45 @@ function shuffle(arr) {
 }
 
 export default function MatchingPairs() {
-  const shuffledRight = useMemo(() => shuffle(matchingPairs.map((p, i) => ({ ...p.right, pairIndex: i }))), [])
+  const [setIndex, setSetIndex] = useState(null)
+
+  if (setIndex === null) {
+    return (
+      <div className="puzzle-game">
+        <h2 className="puzzle-title">Matching Pairs 🔗</h2>
+        <p className="puzzle-info">Pick a category!</p>
+        <div className="set-picker">
+          {matchingPairSets.map((s, i) => (
+            <motion.button
+              key={s.name}
+              className="set-card"
+              onClick={() => setSetIndex(i)}
+              whileHover={{ scale: 1.05, y: -3 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+            >
+              <span className="set-emoji">{s.emoji}</span>
+              <span className="set-name">{s.name}</span>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  return <MatchingGame pairSet={matchingPairSets[setIndex]} onBack={() => setSetIndex(null)} />
+}
+
+function MatchingGame({ pairSet, onBack }) {
+  const pairs = pairSet.pairs
+  const shuffledRight = useMemo(() => shuffle(pairs.map((p, i) => ({ ...p.right, pairIndex: i }))), [pairs])
   const [selectedLeft, setSelectedLeft] = useState(null)
   const [selectedRight, setSelectedRight] = useState(null)
   const [matched, setMatched] = useState([])
   const [wrongPair, setWrongPair] = useState(null)
 
-  const isComplete = matched.length === matchingPairs.length
+  const isComplete = matched.length === pairs.length
 
   const handleLeftClick = (index) => {
     if (matched.includes(index)) return
@@ -49,7 +81,7 @@ export default function MatchingPairs() {
       setMatched(prev => [...prev, leftIdx])
       setSelectedLeft(null)
       setSelectedRight(null)
-      if (matched.length + 1 === matchingPairs.length) {
+      if (matched.length + 1 === pairs.length) {
         confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } })
       }
     } else {
@@ -71,13 +103,13 @@ export default function MatchingPairs() {
 
   return (
     <div className="puzzle-game">
-      <h2 className="puzzle-title">Matching Pairs 🔗</h2>
-      <p className="puzzle-info">Match the parent to the baby!</p>
+      <button className="set-back" onClick={onBack}>← Choose Category</button>
+      <h2 className="puzzle-title">Matching Pairs 🔗 — {pairSet.name}</h2>
+      <p className="puzzle-info">Match the pairs!</p>
 
       <div className="matching-container">
         <div className="matching-column">
-          <h3 style={{ textAlign: 'center', color: 'var(--text-light)', fontSize: 14 }}>Parents</h3>
-          {matchingPairs.map((pair, i) => (
+          {pairs.map((pair, i) => (
             <motion.button
               key={i}
               className={`match-item ${selectedLeft === i ? 'selected' : ''} ${matched.includes(i) ? 'matched' : ''} ${wrongPair?.left === i ? 'wrong shake' : ''}`}
@@ -91,7 +123,6 @@ export default function MatchingPairs() {
         </div>
 
         <div className="matching-column">
-          <h3 style={{ textAlign: 'center', color: 'var(--text-light)', fontSize: 14 }}>Babies</h3>
           {shuffledRight.map((item, i) => (
             <motion.button
               key={i}

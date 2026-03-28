@@ -13,9 +13,8 @@ function shuffle(arr) {
   return a
 }
 
-function createDeck() {
-  const pairs = memoryCardSets.slice(0, 6)
-  const cards = pairs.flatMap((p, i) => [
+function createDeck(cardSet) {
+  const cards = cardSet.cards.flatMap((p, i) => [
     { id: i * 2, emoji: p.emoji, pairId: i },
     { id: i * 2 + 1, emoji: p.emoji, pairId: i },
   ])
@@ -23,12 +22,39 @@ function createDeck() {
 }
 
 export default function MemoryCards() {
-  const [cards, setCards] = useState(createDeck)
+  const [setIndex, setSetIndex] = useState(null)
+  const [cards, setCards] = useState(null)
   const [flipped, setFlipped] = useState([])
   const [matched, setMatched] = useState([])
   const [moves, setMoves] = useState(0)
 
   const flipTimeoutRef = useRef(null)
+
+  if (setIndex === null) {
+    return (
+      <div className="puzzle-game">
+        <h2 className="puzzle-title">Memory Cards 🃏</h2>
+        <p className="puzzle-info">Pick a card set!</p>
+        <div className="set-picker">
+          {memoryCardSets.map((s, i) => (
+            <motion.button
+              key={s.name}
+              className="set-card"
+              onClick={() => { setSetIndex(i); setCards(createDeck(s)) }}
+              whileHover={{ scale: 1.05, y: -3 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+            >
+              <span className="set-emoji">{s.emoji}</span>
+              <span className="set-name">{s.name}</span>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   const isComplete = matched.length === cards.length
 
   const handleFlip = (index) => {
@@ -54,7 +80,15 @@ export default function MemoryCards() {
   }
 
   const handleReset = () => {
-    setCards(createDeck())
+    setCards(createDeck(memoryCardSets[setIndex]))
+    setFlipped([])
+    setMatched([])
+    setMoves(0)
+  }
+
+  const handleBack = () => {
+    setSetIndex(null)
+    setCards(null)
     setFlipped([])
     setMatched([])
     setMoves(0)
@@ -62,7 +96,8 @@ export default function MemoryCards() {
 
   return (
     <div className="puzzle-game">
-      <h2 className="puzzle-title">Memory Cards 🃏</h2>
+      <button className="set-back" onClick={handleBack}>← Choose Set</button>
+      <h2 className="puzzle-title">Memory Cards 🃏 — {memoryCardSets[setIndex].name}</h2>
       <p className="puzzle-info">Moves: {moves} | Pairs found: {matched.length / 2} / {cards.length / 2}</p>
 
       <div className="memory-grid">

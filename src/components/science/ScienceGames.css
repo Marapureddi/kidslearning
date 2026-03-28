@@ -291,6 +291,70 @@
   color: var(--text-light);
 }
 
+.body-btn.active-part {
+  background: rgba(76, 175, 80, 0.25);
+  border: 2px solid var(--science);
+  transform: scale(1.05);
+}
+
+.body-detail {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.body-detail-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--science);
+}
+
+.body-detail-desc {
+  font-size: 17px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.body-detail-section {
+  margin-bottom: 10px;
+}
+
+.body-detail-section h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--science);
+  margin-bottom: 4px;
+}
+
+.body-detail-section p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.body-listen {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--science);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.body-listen:hover {
+  opacity: 0.85;
+}
+
 @media (max-width: 500px) {
   .animal-grid {
     grid-template-columns: repeat(2, 1fr);

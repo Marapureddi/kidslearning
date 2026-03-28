@@ -1,0 +1,139 @@
+.sight-words {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.sw-title {
+  font-size: 28px;
+  color: var(--english);
+}
+
+.sw-levels {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sw-level {
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light);
+  transition: all 0.2s;
+}
+
+.sw-level.active {
+  background: var(--english);
+  border-color: var(--english);
+  color: white;
+}
+
+.sw-level:hover:not(.active) {
+  border-color: var(--english);
+  color: var(--english);
+}
+
+.sw-progress {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sw-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-bg);
+  padding: 40px 48px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 450px;
+  width: 100%;
+}
+
+.sw-word {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--english);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sw-word:hover {
+  transform: scale(1.05);
+}
+
+.sw-sentence {
+  font-size: 20px;
+  color: var(--text);
+  text-align: center;
+  font-weight: 600;
+}
+
+.sw-hear {
+  padding: 10px 24px;
+  background: var(--english-light);
+  color: var(--english);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.sw-hear:hover {
+  background: var(--english);
+  color: white;
+}
+
+.sw-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.sw-nav-btn {
+  padding: 10px 24px;
+  background: var(--english-light);
+  color: var(--english);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.sw-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.sw-nav-btn:hover:not(:disabled) {
+  background: var(--english);
+  color: white;
+}
+
+.sw-quiz-btn {
+  padding: 14px 32px;
+  background: var(--english);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (max-width: 500px) {
+  .sw-card {
+    padding: 28px 24px;
+  }
+  .sw-word {
+    font-size: 52px;
+  }
+}

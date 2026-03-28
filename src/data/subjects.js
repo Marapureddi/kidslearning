@@ -11,8 +11,12 @@ export const subjects = [
     description: 'Letters, Words & Sounds',
     activities: [
       { id: 'alphabet', name: 'Alphabet Explorer', emoji: '🔤', description: 'Learn your ABCs!' },
+      { id: 'vowels', name: 'Vowel Explorer', emoji: '🅰️', description: 'Learn A, E, I, O, U!' },
       { id: 'phonics', name: 'Phonics Match', emoji: '🔊', description: 'Match sounds to pictures!' },
+      { id: 'sight-words', name: 'Sight Words', emoji: '👁️', description: 'Learn common words!' },
       { id: 'words', name: 'Word Builder', emoji: '✏️', description: 'Spell simple words!' },
+      { id: 'stories', name: 'Story Time', emoji: '📖', description: 'Read stories & answer questions!' },
+      { id: 'writing', name: 'Writing Practice', emoji: '✍️', description: 'Practice writing words!' },
     ],
   },
   {
@@ -24,9 +28,12 @@ export const subjects = [
     lightColor: 'var(--math-light)',
     description: 'Numbers, Counting & Shapes',
     activities: [
-      { id: 'counting', name: 'Counting Fun', emoji: '🐾', description: 'Count objects!' },
+      { id: 'counting', name: 'Counting Fun', emoji: '🐾', description: 'Count up to 20!' },
       { id: 'numbers', name: 'Number Match', emoji: '🔢', description: 'Match numbers to groups!' },
       { id: 'addition', name: 'Basic Addition', emoji: '➕', description: 'Add things together!' },
+      { id: 'advanced-addition', name: 'Advanced Addition', emoji: '🧮', description: 'Add bigger numbers up to 40!' },
+      { id: 'subtraction', name: 'Basic Subtraction', emoji: '➖', description: 'Take things away!' },
+      { id: 'advanced-subtraction', name: 'Advanced Subtraction', emoji: '🔢', description: 'Subtract bigger numbers!' },
       { id: 'shapes', name: 'Shape Explorer', emoji: '🔷', description: 'Find the shapes!' },
     ],
   },
@@ -42,6 +49,7 @@ export const subjects = [
       { id: 'memory', name: 'Memory Cards', emoji: '🃏', description: 'Find matching pairs!' },
       { id: 'patterns', name: 'Pattern Finder', emoji: '🔁', description: 'What comes next?' },
       { id: 'matching', name: 'Matching Pairs', emoji: '🔗', description: 'Connect the pairs!' },
+      { id: 'jigsaw', name: 'Jigsaw Puzzle', emoji: '🧩', description: 'Put the pieces together!' },
     ],
   },
   {
@@ -56,7 +64,7 @@ export const subjects = [
       { id: 'animals', name: 'Animal Sounds', emoji: '🐶', description: 'Who makes this sound?' },
       { id: 'colors', name: 'Color Mixing', emoji: '🎨', description: 'Mix and find colors!' },
       { id: 'nature', name: 'Nature Explorer', emoji: '🌿', description: 'Discover nature!' },
-      { id: 'body', name: 'Body Parts', emoji: '🦴', description: 'Learn about your body!' },
+      { id: 'body', name: 'My Body', emoji: '🦴', description: 'Learn how your body works!' },
     ],
   },
 ]

@@ -1,0 +1,124 @@
+.story-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.st-title {
+  font-size: 28px;
+  color: var(--english);
+}
+
+.st-subtitle {
+  font-size: 18px;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.st-back {
+  align-self: flex-start;
+  padding: 8px 16px;
+  background: var(--english-light);
+  color: var(--english);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.st-back:hover {
+  background: var(--english);
+  color: white;
+}
+
+.st-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 550px;
+  width: 100%;
+}
+
+.st-story-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  background: var(--card-bg);
+  border: 3px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.st-story-card:hover {
+  border-color: var(--english);
+  box-shadow: var(--shadow-hover);
+}
+
+.st-story-emoji {
+  font-size: 48px;
+}
+
+.st-story-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+}
+
+.st-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 600px;
+  width: 100%;
+}
+
+.st-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.st-listen {
+  padding: 10px 24px;
+  background: var(--english-light);
+  color: var(--english);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.st-listen:hover {
+  background: var(--english);
+  color: white;
+}
+
+.st-quiz-btn {
+  padding: 14px 32px;
+  background: var(--english);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (max-width: 500px) {
+  .st-grid {
+    grid-template-columns: 1fr;
+  }
+  .st-content {
+    padding: 20px;
+  }
+  .st-text {
+    font-size: 16px;
+  }
+}

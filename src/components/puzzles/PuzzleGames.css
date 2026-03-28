@@ -250,6 +250,191 @@
   font-weight: 700;
 }
 
+/* Set picker (shared) */
+.set-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.set-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  background: var(--card-bg);
+  border: 3px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.set-card:hover {
+  border-color: var(--puzzles);
+  box-shadow: var(--shadow-hover);
+}
+
+.set-emoji {
+  font-size: 48px;
+}
+
+.set-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.set-back {
+  align-self: flex-start;
+  padding: 8px 16px;
+  background: var(--puzzles-light);
+  color: var(--puzzles);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.set-back:hover {
+  background: var(--puzzles);
+  color: white;
+}
+
+/* Jigsaw Puzzle */
+.jigsaw-section {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.jigsaw-ref-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jigsaw-ref-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.jigsaw-hint-toggle {
+  padding: 4px 14px;
+  background: var(--puzzles-light);
+  color: var(--puzzles);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.jigsaw-hint-toggle:hover {
+  background: var(--puzzles);
+  color: white;
+}
+
+.jigsaw-preview {
+  width: 100%;
+  border: 3px solid var(--puzzles);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.jigsaw-preview-img {
+  width: 100%;
+  display: block;
+}
+
+.jigsaw-divider {
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--puzzles);
+  text-align: center;
+}
+
+.jigsaw-img-board {
+  display: grid;
+  gap: 3px;
+  width: 100%;
+  background: var(--border);
+  border: 3px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.jigsaw-img-cell {
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-size: cover;
+}
+
+.jigsaw-img-cell.empty {
+  background-color: var(--card-bg) !important;
+  border: 2px dashed var(--border);
+}
+
+.jigsaw-img-cell.empty.ready {
+  background-color: var(--puzzles-light) !important;
+  border-color: var(--puzzles);
+  cursor: pointer;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.jigsaw-img-cell.filled {
+  cursor: default;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.jigsaw-img-tray {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.jigsaw-img-piece {
+  width: 70px;
+  height: 70px;
+  border: 3px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-size: cover;
+  padding: 0;
+}
+
+.jigsaw-img-piece:hover:not(.used) {
+  border-color: var(--puzzles);
+}
+
+.jigsaw-img-piece.active {
+  border-color: var(--puzzles);
+  transform: scale(1.2);
+  box-shadow: 0 6px 20px rgba(162, 155, 254, 0.5);
+  z-index: 1;
+}
+
+.jigsaw-img-piece.used {
+  opacity: 0.1;
+  pointer-events: none;
+  transform: scale(0.85);
+  background: var(--border) !important;
+}
+
 @media (max-width: 500px) {
   .memory-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -260,5 +445,15 @@
   .match-item {
     min-width: 100px;
     padding: 10px 14px;
+  }
+  .set-picker {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .jigsaw-section {
+    max-width: 100%;
+  }
+  .jigsaw-img-piece {
+    width: 55px;
+    height: 55px;
   }
 }
